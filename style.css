@@ -1,0 +1,73 @@
+html, body {
+    margin: 0;
+}
+
+.gallery figure img {
+    width: 500px;
+    height: 250px;
+    border: 4px solid lightcyan;
+}
+
+.gallery figure figcaption {
+    position: absolute;
+    color:  darksalmon;
+    font-size: 30px;
+    font-weight: 600;
+    font-style: italic;
+    font-family: monospace;
+}
+
+.gallery figure .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.gallery figure {
+    position: relative;
+    left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transition: left .4s ease-in-out;
+}
+
+.gallery {
+    display: flex;
+    overflow: hidden;
+    margin-top: 50px;
+
+    /* add width */
+    /* width = (image width + ( border width * 2 ) + (image count * left size) ) */
+    /* width = (500px + (4px * 2) + ( 5 * 50px )) = 758px */
+    width: 758px;
+}
+
+.last-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* add hover effect */
+.gallery figure .container:hover ~ figure {
+    left: 500px;
+}
+
+/* add figcaption animation */
+.gallery figure .container:hover figcaption {
+    animation-name: titleSkew;
+    animation-duration: .7s;
+}
+
+
+@keyframes titleSkew {
+    from {
+        transform: skew(40deg, 30deg);
+    }
+    to {
+        transform: skew(0deg, 0deg);
+    }
+}
